@@ -19,8 +19,7 @@ public class DummyConsumer : IConsumer<DummyEvent>
         var distributedContext = context.GetHeader("x-distributed-tracing-context");
 
         var distributedTracingData = DistributedTracingData.TryDeserializeFromString(distributedContext);
-
-        //Agent.Tracer.CurrentTransaction.
+        
         var transaction = Agent.Tracer.StartTransaction(
             name,
             type,
@@ -32,12 +31,12 @@ public class DummyConsumer : IConsumer<DummyEvent>
     public async Task Consume(ConsumeContext<DummyEvent> context)
     {
         var transaction = Agent.Tracer.CurrentTransaction ?? CreateTransaction(context, "ConsumeDummyEvent");
-        var span = transaction.StartSpan("ConsumeDummyEvent", ApiConstants.TypeMessaging);
+        var span = transaction?.StartSpan("ConsumeDummyEvent", ApiConstants.TypeMessaging);
 
         _logger.LogInformation("DummyConsumer.Consume");
         throw new NotImplementedException();
 
-        span.End();
-        //transaction.End();
+        //span?.End();
+        //transaction?.End();
     }
 }
