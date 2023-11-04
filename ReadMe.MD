@@ -1,7 +1,9 @@
 
 
 # Caused by 
-`cfg.UseDelayedRedelivery(` in combination with creating a new Transaction in consumer
+`cfg.UseDelayedRedelivery` in combination with creating a new Transaction in a consumer
+
+issue occured on first redelivery or instant if the RabbitMq plugin for delayed messages is not installed (`rabbitmq_delayed_message_exchange`)
 
 # Exception
 ```
