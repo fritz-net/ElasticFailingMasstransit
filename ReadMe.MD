@@ -33,3 +33,6 @@ fail: MassTransit.ReceiveTransport[0]
          at MassTransit.Transports.ReceivePipeDispatcher.Dispatch(ReceiveContext context, ReceiveLockContext receiveLock) in /_/src/MassTransit/Transports/ReceivePipeDispatcher.cs:line 115
          at MassTransit.RabbitMqTransport.RabbitMqBasicConsumer.<>c__DisplayClass21_0.<<HandleBasicDeliver>b__0>d.MoveNext() in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/RabbitMqBasicConsumer.cs:line 168
 ```
+
+fails on this line:
+https://github.com/elastic/apm-agent-dotnet/blob/63b25037988aa072d064c216b08ae9d714cfaa2c/src/Elastic.Apm/Model/Span.cs#L142
