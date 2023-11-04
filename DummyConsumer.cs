@@ -37,7 +37,7 @@ public class DummyConsumer : IConsumer<DummyEvent>
         _logger.LogInformation("DummyConsumer.Consume");
         throw new NotImplementedException();
 
-        span.End();
+        //span.End();
         //transaction.End();
     }
 }
