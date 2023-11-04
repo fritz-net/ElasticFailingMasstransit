@@ -26,8 +26,6 @@ public class DummyConsumer : IConsumer<DummyEvent>
             type,
             distributedTracingData
         );
-        //(transaction as Elastic.Apm.Model.Transaction)?.Otel.Attributes.Clear();
-        //(transaction as dynamic)?.Otel.Attributes.Clear();
         return transaction;
     }
 

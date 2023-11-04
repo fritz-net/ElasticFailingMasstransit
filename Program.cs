@@ -23,16 +23,12 @@ IHost host = Host.CreateDefaultBuilder(args)
 
                 // https://masstransit.io/documentation/concepts/exceptions
                 //cfg.UseDelayedRedelivery(r => r.Intervals(TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(15), TimeSpan.FromMinutes(30))); // unknown exchange type 'x-delayed-message'
-                cfg.UseMessageRetry(r => r.Immediate(2));
-                //cfg.UseMessageRetry(r => r.None());
+                //cfg.UseMessageRetry(r => r.Immediate(2));
+                cfg.UseMessageRetry(r => r.None());
 
                 cfg.ConfigureEndpoints(context);
             });
         });
-
-        //services.AddHostedService<Worker>();
-        //var publishEndpoint = services.BuildServiceProvider().GetService(typeof(IPublishEndpoint)) as IPublishEndpoint;
-        //publishEndpoint.Publish(new DummyEvent());
     })
     .Build();
 
