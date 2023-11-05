@@ -30,7 +30,7 @@ IHost host = Host.CreateDefaultBuilder(args)
                     //{
                     //    t.
                     //});
-                    r.Intervals(TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(15), TimeSpan.FromMinutes(30));
+                    r.Intervals(TimeSpan.FromSeconds(5), TimeSpan.FromMinutes(5), TimeSpan.FromMinutes(15), TimeSpan.FromMinutes(30));
                 }); // unknown exchange type 'x-delayed-message'
                 //cfg.UseMessageRetry(r => r.Immediate(2));
                 cfg.UseMessageRetry(r => r.None());
